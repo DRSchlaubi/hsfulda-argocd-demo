@@ -17,9 +17,9 @@ spec:
         {{- include "calendar-app.selectorLabels" . | nindent 8 }}
     spec:
       initContainers:
-        - name: wait-for-mysql
+        - name: wait-for-mariadb
           image: busybox:1.35.0-uclibc
-          command: ['sh', '-c', 'until nc -z {{ .Release.Name }}-mysql.{{ .Release.Namespace }}.svc.cluster.local 3306; do echo "Waiting for MySQL..."; sleep 5; done;']
+          command: ['sh', '-c', 'until nc -z {{ .Release.Name }}-mariadb.{{ .Release.Namespace }}.svc.cluster.local 3306; do echo "Waiting for MySQL..."; sleep 5; done;']
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
@@ -30,13 +30,13 @@ spec:
               protocol: TCP
           env:
             - name: MYSQL_HOST
-              value: "{{ .Release.Name }}-mysql.{{ .Release.Namespace }}.svc.cluster.local"
+              value: "{{ .Release.Name }}-mariadb.{{ .Release.Namespace }}.svc.cluster.local"
             - name: MYSQL_USER
-              value: "{{ .Values.mysql.auth.username }}"
+              value: "{{ Values.mariadb.auth.username }}"
             - name: MYSQL_PASSWORD
-              value: "{{ .Values.mysql.auth.password }}"
+              value: "{{ Values.mariadb.auth.password }}"
             - name: MYSQL_DATABASE
-              value: "{{ .Values.mysql.auth.database }}"
+              value: "{{ Values.mariadb.auth.database }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.healthCheck.enabled }}

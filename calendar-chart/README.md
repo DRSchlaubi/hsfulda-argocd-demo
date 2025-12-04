@@ -85,7 +85,7 @@ helm uninstall my-calendar
 
 ### Configuring the application
 
-The application is configured to connect to the MySQL database using environment variables that are set directly in the deployment template. The MySQL host is set to use the fully qualified domain name of the MySQL service: `<release-name>-mysql.<namespace>.svc.cluster.local`.
+The application is configured to connect to the MySQL database using environment variables that are set directly in the deployment template. The MySQL host is set to use the fully qualified domain name of the MySQL service: `<release-name>-mariadb.<namespace>.svc.cluster.local`.
 
 ### Dependencies
 
