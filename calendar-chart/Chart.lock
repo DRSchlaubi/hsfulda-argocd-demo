@@ -1,6 +1,6 @@
 dependencies:
-- name: mysql
-  repository: https://charts.bitnami.com/bitnami
-  version: 12.2.2
-digest: sha256:5124bea06f38cea3d0f976da91c6ccdbb1d118282ff6347d51d44e09de682e50
-generated: "2025-07-05T17:57:02.419399623+02:00"
+- name: mariadb
+  repository: oci://registry-1.docker.io/cloudpirates
+  version: 0.8.0
+digest: sha256:ece37c312ebe3e5b74bd14987d3897044ef243f65de62f320c542717b6e6217a
+generated: "2025-12-04T11:39:48.83959704Z"

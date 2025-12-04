@@ -32,11 +32,11 @@ spec:
             - name: MYSQL_HOST
               value: "{{ .Release.Name }}-mariadb.{{ .Release.Namespace }}.svc.cluster.local"
             - name: MYSQL_USER
-              value: "{{ Values.mariadb.auth.username }}"
+              value: "{{ .Values.mariadb.auth.username }}"
             - name: MYSQL_PASSWORD
-              value: "{{ Values.mariadb.auth.password }}"
+              value: "{{ .Values.mariadb.auth.password }}"
             - name: MYSQL_DATABASE
-              value: "{{ Values.mariadb.auth.database }}"
+              value: "{{ .Values.mariadb.auth.database }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.healthCheck.enabled }}

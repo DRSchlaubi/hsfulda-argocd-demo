@@ -29,6 +29,6 @@ Notes:
 1. The application uses an initContainer to wait for MySQL to be ready before starting.
 2. MySQL is deployed as a dependency and will be available at {{ .Release.Name }}-mariadb.{{ .Release.Namespace }}.svc.cluster.local.
 3. To access the MySQL database directly:
-   kubectl run -i --tty --rm debug --image=mysql:8.0 --restart=Never -- mysql -h {{ .Release.Name }}-mariadb.{{ .Release.Namespace }}.svc.cluster.local -u {{ Values.mariadb.auth.username }} -p{{ Values.mariadb.auth.password }} {{ Values.mariadb.auth.database }}
+   kubectl run -i --tty --rm debug --image=mysql:8.0 --restart=Never -- mysql -h {{ .Release.Name }}-mariadb.{{ .Release.Namespace }}.svc.cluster.local -u {{ .Values.mariadb.auth.username }} -p{{ .Values.mariadb.auth.password }} {{ .Values.mariadb.auth.database }}
 
 For more information, please refer to the documentation. 
