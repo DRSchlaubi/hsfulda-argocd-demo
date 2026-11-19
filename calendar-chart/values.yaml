@@ -52,7 +52,7 @@ autoscaling:
 
 # MySQL dependency configuration
 mariadb:
-  # Use the Bitnami MySQL chart
+  # Use the Helmforge MySQL chart
   enabled: true
   # Initialize database with our SQL script
   initdbScriptsConfigMap: "{{ .Release.Name }}-init-sql" 
