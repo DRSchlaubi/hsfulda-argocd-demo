@@ -1,0 +1,6 @@
+dependencies:
+- name: mariadb
+  repository: oci://ghcr.io/helmforgedev/helm
+  version: 2.2.2
+digest: sha256:b9e35411268bf93fe506a88d9d7ef8ac52d138fecd2b5dee8eb30b48e1c4a63b
+generated: "2026-11-19T22:30:44.929146274+01:00"

@@ -12,5 +12,5 @@ maintainers:
     email: faizi@example.com
 dependencies:
   - name: mariadb
-    version: "0.8.0"
-    repository: "oci://registry-1.docker.io/cloudpirates/mariadb" 
+    version: "2.2.2"
+    repository: "oci://ghcr.io/helmforgedev/helm"
