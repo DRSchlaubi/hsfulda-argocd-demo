@@ -2,7 +2,7 @@
 
 # Check if namespace argument is provided
 if [ -z "$1" ]; then
-  ARGOCD_NAMESPACE=""
+  ARGOCD_NAMESPACE="argocd"
   echo "No namespace provided, using default: $ARGOCD_NAMESPACE"
 else
   ARGOCD_NAMESPACE="$1"
