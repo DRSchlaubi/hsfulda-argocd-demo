@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: oci://ghcr.io/drschlaubi/hsfulda-argocd-demo/calendar-app-chart
-    targetRevision: 0.1.0
+    targetRevision: 1.0.7
     path: .
   destination:
     server: https://kubernetes.default.svc
