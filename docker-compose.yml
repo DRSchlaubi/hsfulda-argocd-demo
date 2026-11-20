@@ -1,24 +1,24 @@
-version: '3.8'
-
 services:
-  mysql:
-    image: mysql:8.0
+  mariadb:
+    image: mariadb:lts
+    container_name: calendar-db
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: calendarDB
-      MYSQL_USER: calendaruser
-      MYSQL_PASSWORD: 12123434example
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: calendarDB
+      MARIADB_USER: calendaruser
+      MARIADB_PASSWORD: 12123434example
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3306:3306"
     volumes:
-      - ./calendar-app/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./calendar-app/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
       - mysql_data:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "calendaruser", "-p12123434example"]
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 20s
 
   app:
     build: 
@@ -26,12 +26,12 @@ services:
     ports:
       - "3000:3000"
     environment:
-      MYSQL_HOST: mysql
+      MYSQL_HOST: mariadb
       MYSQL_USER: calendaruser
       MYSQL_PASSWORD: 12123434example
       MYSQL_DATABASE: calendarDB
     depends_on:
-      mysql:
+      mariadb:
         condition: service_healthy
     restart: unless-stopped
     command: >

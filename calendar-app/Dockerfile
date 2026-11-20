@@ -1,16 +1,10 @@
-FROM node:18-alpine
-
+FROM ghcr.io/pnpm/pnpm:12 AS builder
 WORKDIR /app
-
-# Copy package files and install dependencies
-COPY package*.json ./
-RUN npm install
-
-# Copy application files
+COPY package.json pnpm-lock.yaml ./
 COPY . .
+RUN pnpm install --frozen-lockfile
 
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Command to run the application
-CMD ["node", "server.js"] 
+FROM node:26-alpine
+WORKDIR /app
+COPY --from=builder /app .
+CMD ["node", "server.js"]

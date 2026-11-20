@@ -74,7 +74,7 @@ For more details, see the [ArgoCD Setup README](argocd-setup/README.md).
 
 ## GitHub Actions CI/CD
 
-The project includes a GitHub Actions workflow for continuous integration and deployment. The workflow file is located at `.github/workflows/cicd.yml`.
+The project includes a GitHub Actions workflow for continuous integration and deployment. The workflow file is located at `.github/workflows/docker-ci.yml`.
 
 ### CI/CD Pipeline Features
 
