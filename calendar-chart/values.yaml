@@ -3,9 +3,8 @@
 replicaCount: 3
 
 image:
-  repository: faizananwar532/hsfulda-argocd-demo
-  tag: v1
-  # tag: latest
+  repository: ghcr.io/drschlaubi/hsfulda-argocd-demo/calendar-app
+  tag: main
   pullPolicy: IfNotPresent
 
 service:
