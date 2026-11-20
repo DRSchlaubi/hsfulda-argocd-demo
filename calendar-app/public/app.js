@@ -41,8 +41,7 @@ async function getEvents() {
         
         // Add a random border color for visual distinction
         const colors = ['#4361ee', '#3a0ca3', '#7209b7', '#f72585', '#4cc9f0'];
-        const randomColor = colors[Math.floor(Math.random() * colors.length)];
-        eventDiv.style.borderLeftColor = randomColor;
+        eventDiv.style.borderLeftColor = colors[Math.floor(Math.random() * colors.length)];
         
         eventDiv.innerHTML = `
           <h3>${event.name}</h3>
