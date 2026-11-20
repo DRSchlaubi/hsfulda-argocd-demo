@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - calendar-chart
+      - .github/workflows/helm_chart.yaml.yml
 jobs:
   push:
     runs-on: ubuntu-latest
