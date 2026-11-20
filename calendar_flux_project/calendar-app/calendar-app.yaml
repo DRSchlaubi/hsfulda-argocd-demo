@@ -13,6 +13,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 metadata:
   name: calendar-app
 spec:
+  releaseName: calendar-app
   interval: 12h
   install:
     strategy:
