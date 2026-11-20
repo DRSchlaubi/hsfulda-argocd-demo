@@ -1,13 +1,6 @@
 #!/bin/bash
 
-# Check if namespace argument is provided
-if [ -z "$1" ]; then
-  ARGOCD_NAMESPACE="argocd"
-  echo "No namespace provided, using default: $ARGOCD_NAMESPACE"
-else
-  ARGOCD_NAMESPACE="$1"
-  echo "Using provided namespace: $ARGOCD_NAMESPACE"
-fi
+ARGOCD_NAMESPACE="argocd"
 
 # Create namespace if it doesn't exist
 kubectl create namespace $ARGOCD_NAMESPACE --dry-run=client -o yaml | kubectl apply -f -

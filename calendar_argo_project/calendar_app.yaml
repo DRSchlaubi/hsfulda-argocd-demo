@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: calendar_app
+spec:
+  project: default
+  source:
+    repoURL: oci://ghcr.io/drschlaubi/hsfulda-argocd-demo/calendar-app-chart
+    targetRevision: 0.1.0
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: calendar-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

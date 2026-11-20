@@ -6,6 +6,7 @@ This project consists of a calendar application with event management functional
 
 - **calendar-app/** - Contains the monolithic calendar application code
 - **calendar-chart/** - Contains the Helm chart for deploying the application to Kubernetes
+- **calendar-argo_project/** - The ArgoCD application files needed to install this
 - **docker-compose.yml** - Docker Compose file for running the application locally
 
 ## Calendar App
