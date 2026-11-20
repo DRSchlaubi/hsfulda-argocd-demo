@@ -16,23 +16,25 @@ ArgoCD is a declarative, GitOps continuous delivery tool for Kubernetes. It auto
 
 To install ArgoCD on your cluster:
 
-1. Make the installation script executable:
+1. (Linux & MacOS only) Make the installation script executable:
    ```
    chmod +x install-argocd.sh
    ```
 
 2. Run the installation script:
+   ```shell
+   ./install-argocd.sh
    ```
-   ./install-argocd.sh [namespace]
+   or
+   ```powershell
+   ./install-argocd.ps1
    ```
    
-   If no namespace is provided, the script will use the default namespace.
-
 ## What the Script Does
 
 The `install-argocd.sh` script:
 
-1. Creates the specified namespace if it doesn't exist
+1. Creates the `argocd`
 2. Adds the ArgoCD Helm repository
 3. Installs ArgoCD with LoadBalancer service type
 4. Waits for the deployment to complete
@@ -55,7 +57,7 @@ After logging in:
 2. Delete the `argocd-initial-admin-secret` for security
 3. Set up your applications using the ArgoCD UI or CLI
 4. Connect your repository in settings in the ArgoCD UI
-5. Create application in the ArgoCD UI
+5. [Create application in the ArgoCD UI](../calendar_argo_project)
 
 
 ## Documentation
